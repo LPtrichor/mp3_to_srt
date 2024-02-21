@@ -29,7 +29,7 @@ def get_gpt_chunk_tool_calls(chunk):
 
 def save_file_by_content(chatbot_name, file_name, content):
     file_path = f"/static/{chatbot_name}_{file_name}"
-    with open("."+file_path, 'wb') as file:
+    with open("." + file_path, 'wb') as file:
         file.write(content)
 
     return file_path
@@ -42,8 +42,7 @@ def create_file_url_path(req: Request, file_path: str):
 def get_openai_client():
     return openai.OpenAI(
         api_key="sk-COu3MKYRVWhzdiBjA1384891D999406b852e5a1a5442F075",
-        # base_url="https://one-api.bltcy.top/v1"
-        base_url="https://one-api.bltcy.top"
+        base_url="https://one-api.bltcy.top/v1"
     )
 
 

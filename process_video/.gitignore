@@ -1,0 +1,7 @@
+# 忽略除了.ipynb之外的问题
+*.ipynb_checkpoints
+*.pyc
+*.pyo
+*.pyd
+*.mp3
+*.srt

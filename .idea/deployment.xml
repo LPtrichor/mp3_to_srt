@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="YiSuCloud" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="196 root@region-41.seetacloud.com:48458 password">
         <serverdata>
@@ -75,7 +75,8 @@
       <paths name="YiSuCloud">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/home/openai_chat_bot" local="$PROJECT_DIR$" web="/" />
+            <mapping local="" />
           </mappings>
         </serverdata>
       </paths>
