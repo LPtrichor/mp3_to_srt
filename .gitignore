@@ -6,3 +6,4 @@
 **/*.sqlite3
 config.json
 test.py
+*.srt
