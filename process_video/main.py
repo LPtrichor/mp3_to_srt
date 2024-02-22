@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 # 音频翻译成英文
 from openai import OpenAI
 import json
+import subprocess
 
 # 读取config.json文件
 with open('config.json', 'r') as config_file:
@@ -23,6 +24,31 @@ client = OpenAI()
 # 指定FFmpeg的路径
 # ffmpeg_path = r"E:\Software\ffmpeg-master-latest-win64-gpl\bin"
 # os.environ["PATH"] += os.pathsep + ffmpeg_path
+
+def split_audio_with_ffmpeg(file_path, segment_length_ms):
+    # 确保输出目录存在
+    output_dir = "./process_video"
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    # 计算分割后的音频长度，ffmpeg 需要的是秒
+    segment_length_s = segment_length_ms / 1000
+    print(f"segment_length_s: {segment_length_s}")
+    # 构建ffmpeg命令
+    cmd = [
+        'ffmpeg',
+        '-i', file_path,
+        '-f', 'segment',
+        '-segment_time', str(segment_length_s),
+        '-c', 'copy',
+        os.path.join(output_dir, 'segment_%03d.mp3')
+    ]
+
+    # 执行ffmpeg命令
+    subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+
 
 def split_audio(file_path, segment_length_ms):
     audio = AudioSegment.from_file(file_path)
@@ -131,7 +157,8 @@ def mp3_to_srt():
         return "没有找到任何.mp3文件"
         # sys.exit()
     segment_length_ms = 20 * 60 * 1000  # 每个片段的长度，这里设置为30秒
-    split_audio(file_path, segment_length_ms)
+    # split_audio(file_path, segment_length_ms)
+    split_audio_with_ffmpeg(file_path, segment_length_ms)
 
     # 获取当前目录下所有以 'segment_' 开头的 .mp3 文件
     segment_files = glob.glob(cwd_prefix + 'segment_*.mp3')
