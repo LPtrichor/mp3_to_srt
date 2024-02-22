@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="YiSuCloud" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" serverName="CloludCone" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="196 root@region-41.seetacloud.com:48458 password">
         <serverdata>
@@ -62,6 +62,13 @@
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="CloludCone">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/mp3_to_srt" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>
